@@ -17,7 +17,7 @@ class TaskStorageService {
   }
 
   // SharedPreferences den görevleri yükle
-  Future<List<TaskModel>> loadTasks(List<TaskModel> tasks) async {
+  Future<List<TaskModel>> loadTasks() async {
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString(taskKey);
     // print('📥 Yüklenen JSON: $jsonString');      debug

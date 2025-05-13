@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:todo_getx_app/app/modules/home/home_controller.dart';
+import 'package:todo_getx_app/app/modules/trash/trash_controller.dart';
 import '../modules/home/home_view.dart';
 import '../modules/task_detail/task_detail_view.dart';
 import '../modules/trash/trash_view.dart';
@@ -15,19 +16,19 @@ class AppPages {
         name: Routes.home,
         page: () => const HomeView(),
         binding: BindingsBuilder(() {
-          Get.put(HomeController());
+          Get.lazyPut(() => HomeController());
         })),
     GetPage(
         name: Routes.detail,
         page: () => const TaskDetailView(),
         binding: BindingsBuilder(() {
-          Get.put(TaskDetailController());
+          Get.lazyPut(() => TaskDetailController());
         })),
     GetPage(
       name: Routes.trash,
       page: () => const TrashView(),
       binding: BindingsBuilder(() {
-        Get.lazyPut(() => HomeController()); //eğer zaten aktifse buna gerek yok
+        Get.lazyPut(() => TrashController()); //eğer zaten aktifse buna gerek yok
       }),
     )
   ];

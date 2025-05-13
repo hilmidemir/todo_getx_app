@@ -10,8 +10,16 @@ class TaskDetailController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
+    print('Get arguments: ${Get.arguments}');
+    final arg = Get.arguments;
+    if (arg is TaskModel) {
+      task = arg;
+      editController.text = task.title;
+    } else
+      print('HATA: Get.arguments null veya geçersiz');
+
     task = Get.arguments as TaskModel; // Sayfaya gelen görev
-    editController.text = task.title;
   }
 
   void updateTask() {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:todo_getx_app/app/data/services/task_service.dart';
 import '../../models/task_model.dart';
 import '../../data/services/task_storage_service.dart';
 
@@ -14,6 +15,8 @@ class HomeController extends GetxController {
   // Kullanıcının seçtiği renk
   RxInt selectedColorValue = 0xFF2196F3.obs; // varsayılan mavi
   final TaskStorageService _storageService = TaskStorageService();
+
+  final TaskService taskService = Get.find<TaskService>();
 
   // Inputtan metin almak için controller
   final TextEditingController textController = TextEditingController();
@@ -35,7 +38,7 @@ class HomeController extends GetxController {
 
   // SharedPreferences den görevleri yükle
   Future<void> loadTasks() async {
-    final loadedTasks = await _storageService.loadTasks(tasks);
+    final loadedTasks = await _storageService.loadTasks();
     tasks.value = loadedTasks;
   }
 
@@ -58,18 +61,14 @@ class HomeController extends GetxController {
   // Yenş görev Ekleme
   void submitTask() {
     final text = textController.text.trim();
+
     if (text.isNotEmpty) {
-      final task = TaskModel(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-        title: text,
-        isDone: false,
-        createdAt: DateTime.now(),
-        tagLabel: selectedTag.value,
-        tagColorValue: selectedColorValue.value,
+      taskService.addTask(
+        text,
+        selectedTag.value,
+        selectedColorValue.value,
       );
-      tasks.add(task);
       textController.clear();
-      saveTasks(); // Her görev Eklemede kaydet
     }
   }
 

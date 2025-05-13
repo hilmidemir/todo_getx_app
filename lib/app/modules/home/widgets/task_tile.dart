@@ -66,6 +66,7 @@ class TaskTile extends StatelessWidget {
           ],
         ),
         onTap: () {
+          print("📦 Gidiyor: ${task.title}");
           Get.toNamed('/detail', arguments: task);
         },
       ),
