@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:todo_getx_app/app/modules/home/home_controller.dart';
 import 'package:todo_getx_app/app/modules/trash/trash_tile.dart';
-import 'package:todo_getx_app/core/responsive_constants.dart';
+import 'package:todo_getx_app/app/core/responsive_constants.dart';
 
 class TrashListWidget extends StatelessWidget {
   const TrashListWidget({super.key});

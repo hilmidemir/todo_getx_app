@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_getx_app/app/modules/home/widgets/task_tile.dart';
 import '../home_controller.dart';
-import '../../../../core/responsive_constants.dart';
+import '../../../core/responsive_constants.dart';
 
 class TaskListWidget extends StatelessWidget {
   const TaskListWidget({super.key});

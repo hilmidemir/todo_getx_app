@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_getx_app/app/models/task_model.dart';
 import 'package:todo_getx_app/app/modules/home/home_controller.dart';
-import 'package:todo_getx_app/core/responsive_constants.dart';
+import 'package:todo_getx_app/app/core/responsive_constants.dart';
 
 class TaskTile extends StatelessWidget {
   final TaskModel task;

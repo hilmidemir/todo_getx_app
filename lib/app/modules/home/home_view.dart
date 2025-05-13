@@ -5,7 +5,7 @@ import 'package:todo_getx_app/app/modules/home/widgets/task_list.dart';
 import 'package:todo_getx_app/app/routes/app_pages.dart';
 import '../home/home_controller.dart';
 import 'widgets/tag_selector.dart';
-import '../../../core/responsive_constants.dart';
+import '../../core/responsive_constants.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
